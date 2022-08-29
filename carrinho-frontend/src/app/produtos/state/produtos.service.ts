@@ -5,7 +5,7 @@ import { ProdutosStore, ProdutosState } from './produtos.store';
 @Injectable({ providedIn: 'root' })
 export class ProdutosService extends NgEntityService<ProdutosState> {
 
-  constructor(protected store: ProdutosStore) {
+  constructor(protected override store: ProdutosStore) {
     super(store);
   }
 
