@@ -6,11 +6,23 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LayoutComponent } from './layout/layout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MaterialModule } from './shared/material';
+import { Icons } from './shared/icons';
+
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    LayoutComponent,
 
   ],
   imports: [
@@ -18,7 +30,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
-    NgbModule
+    BrowserAnimationsModule,
+    FontAwesomeModule,
+    MaterialModule
+
+
+
+
   ],
   providers: [
     {
@@ -28,4 +46,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(Icons);
+
+  }
+}
+

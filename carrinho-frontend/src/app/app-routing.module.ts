@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  // { path: '', pathMatch: 'full', component: MenuModulosComponent },
+   { path: '', pathMatch: 'full', component: LayoutComponent },
   {
     path: 'produtos',
     loadChildren: () =>
